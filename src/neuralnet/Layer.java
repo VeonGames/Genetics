@@ -57,7 +57,13 @@ public class Layer
         }
         return vec;
     }
-
+    
+    public double[] fire()
+    {
+        feed();
+        return outputVector();
+    }
+    
     public Node[] getNode()
     {
         return node;

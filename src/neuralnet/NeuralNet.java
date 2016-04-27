@@ -12,7 +12,8 @@ package neuralnet;
 public class NeuralNet extends Thread
 {
     public Layer[] layer;
-    public double[][] output;
+    public int fitness;
+    public double[] genes;
     
     public NeuralNet(int[] numNodes, double learnRate, double[] input)
     {
@@ -25,17 +26,33 @@ public class NeuralNet extends Thread
             layer[k].input = layer[k-1].outputVector(); 
         }
         layer[0].input = input;
+        
     }
     
     public void fire()
     {
         double[] outs;
+        for (int k = 1; k < layer.length; k++)
+        {
+            layer[k].input = layer[k-1].fire();
+        }
+    }
+    
+    private void initGenes()
+    {
         for (int k = 0; k < layer.length; k++)
         {
-            layer[k].feed();
-            outs = layer[k].outputVector();
-            layer[k].input = outs;
+            
         }
-        
     }
+    
+    public NeuralNet makeNew(int amount, NeuralNet mom, double mutate)
+    {
+        for (int k = 0; k < amount; k++)
+        {
+            
+        }
+        return new NeuralNet();
+    }
+    
 }
