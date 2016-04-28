@@ -9,7 +9,7 @@ package genes;
  *
  * @author Nicno90
  */
-abstract class Cell
+public class Cell
 {
     protected double[] pheno;
 }

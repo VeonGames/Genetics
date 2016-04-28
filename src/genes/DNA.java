@@ -40,7 +40,7 @@ public class DNA
         
         for (int k = 0; k < dna.length; k++)
         {
-            cell = new Cell() {};
+            cell = new Cell();
             cell.pheno = new double[(int) dna[k]];
             ctr++;
             for (int i = 0; i < ((int) dna[k]); i++,k++)
@@ -83,7 +83,7 @@ public class DNA
     public Cell[] decode()
     {
         Cell[] cell = new Cell[cellAmount];
-        Cell c = new Cell() {};
+        Cell c = new Cell();
         for (int k = 0; k < cell.length; k++)
         {
             c.pheno = new double[(int)dna[k]];
@@ -91,6 +91,9 @@ public class DNA
             {
                 c.pheno[i] = dna[k*i + i + 1];
             }
+            
+            cell[k] = c;
         }
+        return cell;
     }
 }
