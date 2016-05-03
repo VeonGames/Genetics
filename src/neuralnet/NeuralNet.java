@@ -5,11 +5,13 @@
  */
 package neuralnet;
 
+import genes.*;
+
 /**
  *
  * @author Nicno90
  */
-public class NeuralNet extends Thread
+public class NeuralNet extends Cell //cell for an organism 
 {
     public Layer[] layer;
     public int fitness;
@@ -26,6 +28,7 @@ public class NeuralNet extends Thread
             layer[k] = new Layer(numNodes[k], numNodes[k-1]);
             layer[k].input = layer[k-1].outputVector(); 
         }
+        this.pheno = initGenes();
     }
     
     public void fire()
@@ -37,7 +40,7 @@ public class NeuralNet extends Thread
         }
     }
     
-    private void initGenes()
+    private double[] initGenes()
     {
         int ctr = 0;
         int temp = 0;
@@ -45,7 +48,7 @@ public class NeuralNet extends Thread
         {
             temp += numNodes[k-1] * numNodes[k];
         }
-        genes = new double[temp];
+        double[] genes = new double[temp];
         for (int k = 0; k < layer.length; k++) //going throguh layers
         {
             for (int i = 0; i < layer[k].node.length; i++) //going through nodes
@@ -57,9 +60,11 @@ public class NeuralNet extends Thread
                 }
             }
         }
-        
+        return genes;
     }
-    //makes new baybe where this is the more fit parent
+    
+
+/* //makes new baybe where this is the more fit parent
     public NeuralNet[] makeNew(int amount, NeuralNet mom, double mutate)
     {
         NeuralNet[] net = new NeuralNet[amount];
@@ -89,6 +94,6 @@ public class NeuralNet extends Thread
             }
         }
         return net;
-    }
+    }*/
     
 }

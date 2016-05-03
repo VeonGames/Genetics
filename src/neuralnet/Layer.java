@@ -5,6 +5,8 @@
  */
 package neuralnet;
 
+import genes.Cell;
+
 /**
  *
  * @author Nicno90

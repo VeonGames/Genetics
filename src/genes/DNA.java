@@ -24,7 +24,7 @@ public class DNA
         dna = new double[ctr];
     }
     
-    public DNA reproduce(double paFit, DNA mom, double maFit, double mutateR) //higher the better fitness
+    public DNA reproduce(double paFit, DNA mom, double maFit, double mutateR) //higher FIT the better fitness
     {
         double fr = paFit * 1.0 / (paFit + maFit); //chance of beig dominate
         Cell cell;
